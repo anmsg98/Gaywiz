@@ -34,8 +34,8 @@ class Player:
     ]
     MAX_ROLL = 0.4
     SPARK_OFFSET = 28
-    GRAVITY = 1
-    JUMP = 15
+    GRAVITY = 1.5
+    JUMP = 18
 
     def magnify(self):
         self.mag_speed = 1.0
@@ -94,7 +94,7 @@ class Player:
         if self.state in [Player.RUNNING, Player.JUMP]:
             self.src_rect = Player.IMAGE_RUN[self.roll]
             if self.count == 0:
-                self.roll = (self.roll+1)%6
+                self.roll = (self.roll+1) % 6
         elif self.state == Player.DOUBLE_JUMP:
             self.src_rect = Player.IMAGE_JUMP[self.roll]
             if self.count == 0:
