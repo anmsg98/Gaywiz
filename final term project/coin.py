@@ -2,11 +2,11 @@ from pico2d import *
 import gfw
 from gobj import *
 
-class Enemy:
+class Coin:
     SIZE = 96
     def __init__(self, x, speed, level):
         # self.pos = get_canvas_width() // 2, get_canvas_height() // 2
-        self.x, self.y = x, get_canvas_height() + Enemy.SIZE
+        self.x, self.y = x, get_canvas_height() + Coin.SIZE
         self.dx, self.dy = 0, speed
         self.level = level
         self.max_life = level * 100
@@ -18,8 +18,8 @@ class Enemy:
         self.time = 0
     def draw(self):
         sx = self.fidx * self.src_width
-        self.image.clip_draw(sx, 0, self.src_width, self.src_height, self.x, self.y)
-        gy = self.y - Enemy.SIZE // 2
+        # self.image.clip_draw(sx, 0, self.src_width, self.src_height, self.x, self.y)
+        gy = self.y - Coin.SIZE // 2
         rate = self.life / self.max_life
 
     def update(self):
@@ -28,7 +28,7 @@ class Enemy:
         self.x += self.dx
         self.y = 150
 
-        if self.y < -Enemy.SIZE:
+        if self.y < -Coin.SIZE:
             self.remove()
 
     def remove(self):
@@ -42,5 +42,5 @@ class Enemy:
         return self.max_life
 
     def get_bb(self):
-        half = Enemy.SIZE // 2 - 5
+        half = Coin.SIZE // 2 - 5
         return self.x - half, self.y - half, self.x + half, self.y + half

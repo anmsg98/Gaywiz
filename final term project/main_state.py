@@ -5,13 +5,13 @@ from bullet import LaserBullet
 from score import Score
 from background import HorzScrollBackground
 import gobj
-import enemy_gen
+import coin_gen
 
 canvas_width = 1000
 canvas_height = 600
 
 def enter():
-    gfw.world.init(['bg', 'enemy', 'bullet', 'player', 'ui', 'cg'])
+    gfw.world.init(['bg', 'coin', 'bullet', 'player', 'ui', 'cg'])
     center = get_canvas_width() // 2, get_canvas_height() // 2
     bg = HorzScrollBackground('bg.png')
     bg.speed = 300
@@ -30,7 +30,7 @@ def enter():
     global font
     font = gfw.font.load(gobj.RES_DIR + '/segoeprb.ttf', 40)
 
-def check_enemy(e):
+def check_coin(e):
     if gobj.collides_box(player, e):
         print('Player Collision', e)
         e.remove()
@@ -48,10 +48,10 @@ def check_enemy(e):
 
 def update():
     gfw.world.update()
-    enemy_gen.update()
+    coin_gen.update()
 
-    for e in gfw.world.objects_at(gfw.layer.enemy):
-        check_enemy(e)
+    for e in gfw.world.objects_at(gfw.layer.coin):
+        check_coin(e)
 
 def draw():
     gfw.world.draw()

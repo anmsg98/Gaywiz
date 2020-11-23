@@ -1,7 +1,7 @@
 import random
 import gfw
 from pico2d import *
-from enemy import Enemy
+from coin import Coin
 
 GEN_X = [ 50, 150, 250, 350, 450 ]
 next_wave = 0
@@ -16,16 +16,16 @@ def update():
 def generate_wave():
     global wave_index, next_wave
     for x in GEN_X:
-        level = enemy_level()
+        level = coin_level()
         speed = -(100 + 5 * wave_index)
-        e = Enemy(x, speed, level)
-        gfw.world.add(gfw.layer.enemy, e)
+        e = Coin(x, speed, level)
+        gfw.world.add(gfw.layer.coin, e)
 
     wave_index += 1
     next_wave = random.uniform(5, 6)
 
 LEVEL_ADJUST_PERCENTS = [ 10, 15, 15, 40, 15, 5 ] # -3 ~ 2
-def enemy_level():
+def coin_level():
     level = (wave_index - 5) // 10 - 3;
     percent = random.randrange(100)
     pl = level
