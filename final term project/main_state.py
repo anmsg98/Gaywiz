@@ -7,7 +7,7 @@ from background import HorzScrollBackground
 import gobj
 import coin_gen
 
-canvas_width = 1000
+canvas_width = 800
 canvas_height = 600
 
 def enter():
@@ -33,6 +33,7 @@ def enter():
 def check_coin(e):
     if gobj.collides_box(player, e):
         print('Player Collision', e)
+        score.score += 10
         e.remove()
         return
 
