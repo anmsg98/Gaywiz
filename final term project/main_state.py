@@ -11,7 +11,7 @@ canvas_width = 800
 canvas_height = 600
 
 def enter():
-    gfw.world.init(['bg', 'coin', 'bullet', 'player', 'ui', 'cg'])
+    gfw.world.init(['bg', 'coin', 'bullet', 'player', 'ui'])
     center = get_canvas_width() // 2, get_canvas_height() // 2
     bg = HorzScrollBackground('bg.png')
     bg.speed = 300
