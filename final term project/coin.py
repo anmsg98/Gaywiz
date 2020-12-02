@@ -6,7 +6,7 @@ class Coin:
     SIZE = 96
     def __init__(self, x, y, speed, level):
         # self.pos = get_canvas_width() // 2, get_canvas_height() // 2
-        self.x, self.y = x+get_canvas_width(), y+get_canvas_height()
+        self.x, self.y = x+get_canvas_width(), y
         self.dx, self.dy = speed, 0
         self.level = level
         self.max_life = level * 100
@@ -25,7 +25,7 @@ class Coin:
     def update(self):
         self.time += gfw.delta_time
         self.fidx = int(self.time * 10 + 0.5) % 8
-        self.x += self.dx * gfw.delta_time * 3
+        self.x += self.dx * gfw.delta_time * 5
         # self.y += self.dy * gfw.delta_time
         if self.y < -Coin.SIZE:
             self.remove()
