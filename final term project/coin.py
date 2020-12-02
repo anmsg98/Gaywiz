@@ -4,10 +4,10 @@ from gobj import *
 
 class Coin:
     SIZE = 96
-    def __init__(self, x, speed, level):
+    def __init__(self, x, y, speed, level):
         # self.pos = get_canvas_width() // 2, get_canvas_height() // 2
-        self.x, self.y = x, get_canvas_height() + Coin.SIZE
-        self.dx, self.dy = 0, speed
+        self.x, self.y = x+get_canvas_width(), y+get_canvas_height()
+        self.dx, self.dy = speed, 0
         self.level = level
         self.max_life = level * 100
         self.life = self.max_life
@@ -18,16 +18,15 @@ class Coin:
         self.time = 0
     def draw(self):
         sx = self.fidx * self.src_width
-        # self.image.clip_draw(sx, 0, self.src_width, self.src_height, self.x, self.y)
+        self.image.clip_draw(sx, 0, self.src_width, self.src_height, self.x, self.y)
         gy = self.y - Coin.SIZE // 2
         rate = self.life / self.max_life
 
     def update(self):
         self.time += gfw.delta_time
         self.fidx = int(self.time * 10 + 0.5) % 8
-        self.x += self.dx
-        self.y = 150
-
+        self.x += self.dx * gfw.delta_time * 3
+        # self.y += self.dy * gfw.delta_time
         if self.y < -Coin.SIZE:
             self.remove()
 
