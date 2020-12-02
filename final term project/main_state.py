@@ -1,7 +1,6 @@
 import gfw
 from pico2d import *
 from player import Player
-from bullet import LaserBullet
 from score import Score
 from background import HorzScrollBackground
 import gobj
@@ -33,19 +32,9 @@ def enter():
 def check_coin(e):
     if gobj.collides_box(player, e):
         print('Player Collision', e)
-        score.score += 10
+        score.score += e.level * 10
         e.remove()
         return
-
-    for b in gfw.gfw.world.objects_at(gfw.layer.bullet):
-        if gobj.collides_box(b, e):
-            # print('Collision', e, b)
-            dead = e.decrease_life(b.power)
-            if dead:
-                score.score += e.level * 10
-                e.remove()
-            b.remove()
-            return
 
 def update():
     gfw.world.update()
@@ -57,6 +46,7 @@ def update():
 def draw():
     gfw.world.draw()
     # gobj.draw_collision_box()
+    font.draw(20, canvas_height - 45, 'Wave: %d' % coin_gen.wave_index)
 
 def handle_event(e):
     global player

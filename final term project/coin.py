@@ -11,7 +11,7 @@ class Coin:
         self.level = level
         self.max_life = level * 100
         self.life = self.max_life
-        self.image = gfw.image.load(RES_DIR + '/enemy_%02d.png' % level)
+        self.image = gfw.image.load(RES_DIR + '/coin.png')
         self.fidx = 0
         self.src_width = self.image.w // 8
         self.src_height = self.image.h

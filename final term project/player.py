@@ -2,7 +2,6 @@ import random
 from pico2d import *
 import gfw
 from gobj import *
-from bullet import *
 
 class Player:
     RUNNING, FALLING, JUMPING, DOUBLE_JUMP = range(4)
@@ -52,15 +51,12 @@ class Player:
         self.state = Player.RUNNING
         self.speed = 320
         self.image = gfw.image.load(RES_DIR + '/runner_run.png')
-        self.spark = gfw.image.load(RES_DIR + '/laser_0.png')
-        self.src_rect = Player.IMAGE_RUN[3]
+        self.src_rect = Player.IMAGE_RUN[0]
         self.roll = 0
         self.count = 0
 
     def draw(self):
         self.image.clip_draw(*self.src_rect, self.x,self.y)
-        # if self.laser_time < Player.SPARK_INTERVAL:
-        #     self.spark.draw(self.x, self.y + Player.SPARK_OFFSET)
     def jump(self):
         if self.state in [Player.FALLING, Player.DOUBLE_JUMP]:
             return
@@ -83,7 +79,7 @@ class Player:
         elif self.state == Player.DOUBLE_JUMP:
             self.image = gfw.image.load(RES_DIR + '/runner_jump.png')
             self.y += self.jump_speed
-            self.jump_speed -= Player.GRAVITY
+            self.jump_speed -= Player.GRAVITY/1.4
             if self.y < 150:
                 self.y = 150
                 self.roll = 3;

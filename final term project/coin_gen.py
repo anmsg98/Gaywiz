@@ -4,6 +4,7 @@ from pico2d import *
 from coin import Coin
 
 GEN_X = [ 50, 150, 250, 350, 450 ]
+GEN_Y = [ 50, 150, 250, 350, 450 ]
 next_wave = 0
 wave_index = 0
 
@@ -15,15 +16,11 @@ def update():
 
 def generate_wave():
     global wave_index, next_wave
-    for x in GEN_X:
+    for x in range(5):
+        GEN_Y[x] = random.randint(200, get_canvas_height())
         level = coin_level()
-        speed = -(100 + 5 * wave_index)
-        if x <= 250:
-            e = Coin(x, (x+500)/2, speed, level)
-        elif x == 350:
-            e = Coin(x, 325, speed, level)
-        elif x == 450:
-            e = Coin(x, 275, speed, level)
+        speed = -(100 + 5 * (wave_index))
+        e = Coin(GEN_X[x], GEN_Y[x], speed, level)
         gfw.world.add(gfw.layer.coin, e)
     wave_index += 1
     next_wave = random.uniform(5, 6)
