@@ -1,7 +1,7 @@
 from pico2d import *
 import gfw
 from gobj import *
-
+STATE_IN_GAME, STATE_GAME_OVER = range(2)
 class Score:
     bullets = []
     trashcan = []

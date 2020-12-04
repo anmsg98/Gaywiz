@@ -50,6 +50,7 @@ class Player:
         self.time = 0
         self.state = Player.RUNNING
         self.speed = 320
+        self.coincount = 0
         self.image = gfw.image.load(RES_DIR + '/runner_run.png')
         self.src_rect = Player.IMAGE_RUN[0]
         self.roll = 0
