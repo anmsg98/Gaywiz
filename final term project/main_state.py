@@ -15,8 +15,12 @@ def enter():
     bg = HorzScrollBackground('bg.png')
     bg.speed = 300
     gfw.world.add(gfw.layer.bg, bg)
-    
-
+    global music_bg, coin, jump, die
+    music_bg = load_music('res/background.mp3')
+    coin = load_wav('res/coin.wav')
+    jump = load_wav('res/jump.wav')
+    die = load_wav('res/die.wav')
+    music_bg.repeat_play()
     global player
     player = Player()
     player.bg = bg
@@ -38,6 +42,7 @@ def enter():
 def check_coin(e):
     if gobj.collides_box(player, e):
         print('Player Collision', e)
+        coin.play()
         score.score += e.level * 10
         coin_gen.coin_count += 1
         e.remove()
@@ -57,7 +62,8 @@ def end_game():
     print('Dead')
     state = STATE_GAME_OVER
     draw()
-    # music_bg.stop()
+    music_bg.stop()
+    die.play()
 def draw():
     gfw.world.draw()
     # gobj.draw_collision_box()
@@ -78,6 +84,8 @@ def handle_event(e):
     elif e.type == SDL_KEYDOWN:
         if e.key == SDLK_ESCAPE:
             gfw.pop()
+        elif e.key == SDLK_SPACE or e.key == SDLK_UP:
+            jump.play()
 
     player.handle_event(e)
 

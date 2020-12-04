@@ -3,6 +3,7 @@ from pico2d import *
 import gfw
 from gobj import *
 
+
 class Player:
     RUNNING, FALLING, JUMPING, DOUBLE_JUMP = range(4)
     KEY_MAP = {
