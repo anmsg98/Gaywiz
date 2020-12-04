@@ -63,12 +63,12 @@ def draw():
     # gobj.draw_collision_box()
     if state == STATE_IN_GAME:
         font.draw(20, canvas_height - 35, 'Wave: %d' % coin_gen.wave_index)
-        font.draw(20, canvas_height - 80, 'coin : %d' % coin_gen.coin_count)
-        font.draw(20, canvas_height - 125, 'life : %d' % coin_gen.life_count)
+        font.draw(20, canvas_height - 80, 'coin: %d' % coin_gen.coin_count)
+        font.draw(20, canvas_height - 125, 'life: %d' % coin_gen.life_count)
     if state == STATE_GAME_OVER:
         center = get_canvas_width() // 2, get_canvas_height() * 2 // 3 + 30
         game_over_image.draw(*center)
-        font.draw(300, get_canvas_height() * 2 // 3 - 150, 'Score : %d' % score.score)
+        font.draw(300, get_canvas_height() * 2 // 3 - 150, 'Score: %d' % score.score)
 
 def handle_event(e):
     global player
