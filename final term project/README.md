@@ -69,11 +69,11 @@ __8. 개발 계획__
 
 
 __9. 현재 커밋횟수__  
-![commit 횟수](https://user-images.githubusercontent.com/62390166/99939192-d79dcd00-2dac-11eb-8ccd-f37d9bd04818.JPG)
+![커밋횟수](https://user-images.githubusercontent.com/62390166/101361226-099d4c00-38e2-11eb-8c97-b00b788ac9be.png)
 
 
 __10. 게임개발 진행상황__  
-![진행상황](https://user-images.githubusercontent.com/62390166/99939191-d79dcd00-2dac-11eb-82d3-509c668bb429.JPG)
+![개발현황](https://user-images.githubusercontent.com/62390166/101361221-086c1f00-38e2-11eb-8cb6-5afd37beebd9.png)
 
 
 __11. 게임 오브젝트의 상호작용__  
@@ -82,17 +82,34 @@ __11. 게임 오브젝트의 상호작용__
 
 __12. 계획 변경 사항__  
 - __체크포인트 삭제__  
-체크포인트를 통한 게임 진행이 아닌 점수제를 통한 게임진행으로 바꾸기로 함  
+체크포인트를 통한 게임 진행이 아닌 코인 획득제를 통한 게임진행으로 바꾸기로 함  
+(웨이브마다 나오는 코인을 모두 먹어야 생존)
 - __배경의 변화 삭제__  
 체크포인트가 사라짐 및 유사한 이미지의 부재로 인해 배경의 변화 삭제 결정  
+
 
 __13. 구현할 때 어려웠던 점__  
 - __더블 점프 구현__  
 점프 상태에서 한번 더 누르면 더블 점프가 되는 것을 구현하기 위해 많은 시간을 들였지만
 구상하기에 쉽지 않았음, 다행히도 9주차 쿠키런 소스에서 더블 점프와 관련된 코드가 있어 도움을 받음.  
 - __코인이 다양한 패턴으로 출현__  
-아직 구현하진 않았지만, 다양한 패턴(직선, u자, 지그재그) 형식으로 코인을 랜덤 출현하게 하는
+다양한 패턴(직선, u자, 지그재그) 형식으로 코인을 랜덤 출현하게 하는
 코드를 구상하는데 굉장한 어려움을 겪음  
 
 
+__14. 인터뷰 내용__  
+![인터뷰](https://user-images.githubusercontent.com/62390166/101361446-52ed9b80-38e2-11eb-998b-785b35df6afe.png)  
 
+
+__15. 평가 지표__  
+![평가표](https://user-images.githubusercontent.com/62390166/101361449-53863200-38e2-11eb-9235-eda4a8b76318.jpg)  
+
+
+__16. 발표 영상__  
+- 1차 발표 영상 : https://youtu.be/Jdu5vuprjSA  
+- 2차 발표 영상 : https://youtu.be/o2bWPkFhiKU  
+- 3차 발표 영상 : https://youtu.be/31ntqU8f4Ls  
+
+
+__17. 최종 릴리즈 파일__  
+https://drive.google.com/file/d/1V_cadA03Ubvrvid2u_Bz7okZMJAwrtAw/view?usp=sharing
